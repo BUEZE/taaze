@@ -2,12 +2,12 @@ require 'oga'
 require 'open-uri'
 require 'date'
 
-module TaazeComments
+module Taaze
   # This class get the user personal page as an input
   # return a hash of user's collections information
   # For example, with user's url: http://www.taaze.tw/container_zekeaclt_view.html?ci=12522728
   # here's the user's comments of books: http://www.taaze.tw/container_zekeaclt_view.html?ci=12522728&cp=2
-  class Taaze
+  class TaazeComments
     def initialize(url)
       parse_html(url)
     end
