@@ -6,7 +6,7 @@ URL = ['http://www.taaze.tw/container_zekeaclt_view.html?ci=12522728', 'http://w
 comments_from_file = YAML.load(File.read('./spec/testfiles/comments.yml'))
 
 URL.each do |url|
-  comments_found = Taaze.new(url).comments
+  comments_found = Taaze::TaazeComments.new(url).comments
 
   describe "Get all the comments with specific user's url" do
     it 'has the right number of comments' do
