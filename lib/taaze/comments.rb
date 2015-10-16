@@ -8,8 +8,10 @@ module Taaze
   # For example, with user's url: http://www.taaze.tw/container_zekeaclt_view.html?ci=12522728
   # here's the user's comments of books: http://www.taaze.tw/container_zekeaclt_view.html?ci=12522728&cp=2
   class TaazeComments
-    def initialize(url)
-      parse_html(url)
+    USERS_URL = 'http://www.taaze.tw/container_zekeaclt_view.html?ci='
+
+    def initialize(user_id)
+      parse_html(user_id)
     end
 
     # Return a hash of user's comments
@@ -20,7 +22,7 @@ module Taaze
     private
 
     # Parse the html of the url page.
-    def parse_html(url)
+    def parse_html(user_id)
     end
 
     # Return the comments in the format specified in spec.

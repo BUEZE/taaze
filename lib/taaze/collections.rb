@@ -8,19 +8,21 @@ module Taaze
   # For example, with user's url: http://www.taaze.tw/container_zekeaclt_view.html?ci=12522728
   # here's the user's collections of books: http://www.taaze.tw/container_zekeaclt_view.html?ci=12522728&cp=1
   class TaazeCollections
-    def initialize(url)
-      parse_html(url)
+    USERS_URL = 'http://www.taaze.tw/container_zekeaclt_view.html?ci='
+
+    def initialize(user_id)
+      parse_html(user_id)
     end
 
     # Return a hash of user's collections
     def collections
-      @collections ||= extract_achievements
+      @collections ||= extract_books
     end
 
     private
 
     # Parse the html of the url page.
-    def parse_html(url)
+    def parse_html(user_id)
     end
 
     # Return the books in the format specified in spec.
