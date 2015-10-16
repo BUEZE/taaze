@@ -2,7 +2,7 @@ require 'yaml'
 require 'minitest/autorun'
 require_relative '../lib/taaze.rb'
 
-URL = %w(12522728 13193872)
+USER_ID = %w(12522728 13193872)
 comments_from_file = YAML.load(File.read('./spec/testfiles/comments.yml'))
 
 USER_ID.each do |user_id|
