@@ -14,7 +14,7 @@ module Taaze
 
     # Return a hash of user's collections
     def collections
-      @collections ||= extract_achievements
+      @collections ||= extract_books
     end
 
     private
