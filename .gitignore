@@ -18,6 +18,9 @@
 .repl_history
 build/
 
+## VCR
+/spec/fixures/vcr_cassettes
+
 ## Documentation cache and generated files:
 /.yardoc/
 /_yardoc/
