@@ -1,9 +1,16 @@
 require 'yaml'
 require 'minitest/autorun'
+require 'vcr'
+require 'webmock/minitest'
 require_relative '../lib/taaze.rb'
 
 USER_ID = %w(12522728 13193872)
-collections_from_file = YAML.load(File.read('./spec/testfiles/collections.yml'))
+collections_from_file = YAML.load(File.read('./spec/fixures/collections.yml'))
+
+VCR.configure do |config|
+  config.cassette_library_dir = 'spec/fixures/vcr_cassettes'
+  config.hook_into :webmock
+end
 
 USER_ID.each do |user_id|
   collections_found = Taaze::TaazeCollections.new(user_id).collections
