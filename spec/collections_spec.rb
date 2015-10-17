@@ -12,5 +12,12 @@ USER_ID.each do |user_id|
     it 'has the right number of collections' do
       collections_found.size.must_equal collections_from_file[user_id].size
     end
+
+    collections_found.map do |book|
+      it 'finds book in the test collection' do
+        exist = collections_from_file[user_id].include? book
+        [book, exist].must_equal [book, true]
+      end
+    end
   end
 end
