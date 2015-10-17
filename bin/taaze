@@ -2,8 +2,15 @@
 
 require_relative '../lib/taaze.rb'
 
-fail ArgumentError, "Usage: userid [user_id]\n" if ARGV.count == 0
-user_id = ARGV[0]
-
-comments_found = Taaze::TaazeComments.new(user_id)
-puts "User #{user_id} has collected #{comments_found.comments.size} comments"
+if ARGV.count != 2 || (ARGV[0] != 'comments' && ARGV[0] != 'collections')
+  fail ArgumentError, "Usage: comments [user_id] OR collections [user_id]\n"
+else
+  user_id = ARGV[1]
+  if ARGV[0] == 'comments'
+    comments_found = Taaze::TaazeComments.new(user_id)
+    puts "User #{user_id} has collected #{comments_found.comments.size} comments"
+  else
+    collections_found = Taaze::TaazeCollections.new(user_id)
+    puts "User #{user_id} has collected #{collections_found.collections.size} collections"
+  end
+end
