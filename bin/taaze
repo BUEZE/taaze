@@ -1,10 +1,9 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/taaze.rb'
-include Taaze
 
 fail ArgumentError, "Usage: userid [userid]\n" if ARGV.count == 0
 userid = ARGV[0]
 
-comments_found = TaazeComments.new(userid)
+comments_found = Taaze::TaazeComments.new(userid)
 puts "#{userid} has collected #{comments_found.comments.size} comments"
