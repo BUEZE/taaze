@@ -24,7 +24,7 @@ module Taaze
 
     # Return a hash of user's comments
     def comments
-      @comments
+      @comments_found
     end
 
     private
@@ -110,7 +110,7 @@ module Taaze
         data_hash_sub['comment_url'] = url
         data_arr.push(data_hash_sub)
       end
-      @comments ||= data_arr
+      @comments_found ||= data_arr
     end
   end
 end
