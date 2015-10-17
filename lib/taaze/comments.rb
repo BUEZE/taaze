@@ -18,14 +18,13 @@ module Taaze
     BOOK_URL = 'http://www.taaze.tw/sing.html?pid='
 
     def initialize(user_id)
-      # split_url('http://www.taaze.tw/container_zekeaclt_view.html?ci=12522728&cp=2')
       user_id = numeric?(user_id) ? user_id.to_s : user_id
       parse_html(user_id)
     end
 
     # Return a hash of user's comments
     def comments
-      p @comments
+      @comments
     end
 
     private
@@ -110,13 +109,8 @@ module Taaze
         url = MAIN_URL + 'co=' + cmtItem['pkNo'] + '&ci=' + user_id + '&cp=3'
         data_hash_sub['comment_url'] = url
         data_arr.push(data_hash_sub)
-        # break if idx == 0
       end
       @comments ||= data_arr
     end
   end
-
-  # for test remove release
-  tmp = TaazeComments.new('13313301')
-  p tmp.comments
 end
