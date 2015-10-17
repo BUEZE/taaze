@@ -41,14 +41,16 @@ module Taaze
 
     # Return the books in the format specified in spec.
     def extract_books
-      _booklist = []
-      @doc.each do |book|
-        _book = {}
-        _book['title'] = book['titleMain']  
-        _book['book_url'] = BOOK_URL + book['prodId'] 
-        _booklist << _book
+      booklist = []
+      if @doc.count != 0
+        @doc.each do |book_data|
+          book = {}
+          book['title'] = book_data['titleMain']
+          book['book_url'] = BOOK_URL + book_data['prodId']
+          booklist << book
+        end
       end
-      _booklist
+      booklist
     end
   end
 end
