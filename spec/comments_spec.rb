@@ -12,5 +12,12 @@ USER_ID.each do |user_id|
     it 'has the right number of comments' do
       comments_found.size.must_equal comments_from_file[user_id].size
     end
+
+    comments_found.map do |comment|
+      it 'finds comments in the test comments' do
+        exist = comments_from_file[user_id].include? comment
+        [comment, exist].must_equal [comment, true]
+      end
+    end
   end
 end
