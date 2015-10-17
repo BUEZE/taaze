@@ -101,14 +101,18 @@ module Taaze
       # http://www.taaze.tw/container_zekeaclt_view.html?co=1000238964&ci=12522728&cp=3
       # co->comment ci->user
       data_arr = []
-      content.each do |cmtItem|
-        data_hash_sub = Hash.new {}
-        data_hash_sub['title'] = cmtItem['title']
-        data_hash_sub['comment'] = cmtItem['content']
-        data_hash_sub['book_url'] = BOOK_URL + cmtItem['orgProdId']
-        url = MAIN_URL + 'co=' + cmtItem['pkNo'] + '&ci=' + user_id + '&cp=3'
-        data_hash_sub['comment_url'] = url
-        data_arr.push(data_hash_sub)
+      if content
+        content.each do |cmtItem|
+          data_hash_sub = Hash.new {}
+          data_hash_sub['title'] = cmtItem['title']
+          data_hash_sub['comment'] = cmtItem['content']
+          data_hash_sub['book_url'] = BOOK_URL + cmtItem['orgProdId']
+          url = MAIN_URL + 'co=' + cmtItem['pkNo'] + '&ci=' + user_id + '&cp=3'
+          data_hash_sub['comment_url'] = url
+          data_arr.push(data_hash_sub)
+        end
+      else
+        data_arr = []
       end
       @comments_found ||= data_arr
     end
