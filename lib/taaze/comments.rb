@@ -104,7 +104,7 @@ module Taaze
       if content
         content.each do |cmtItem|
           data_hash_sub = Hash.new {}
-          data_hash_sub['title'] = cmtItem['title']
+          data_hash_sub['title'] = cmtItem['titleMain']
           data_hash_sub['comment'] = cmtItem['content']
           data_hash_sub['book_url'] = BOOK_URL + cmtItem['orgProdId']
           url = MAIN_URL + 'co=' + cmtItem['pkNo'] + '&ci=' + user_id + '&cp=3'
