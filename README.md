@@ -49,4 +49,4 @@ or
 
 ### Output Sample
 
-![Example.jpg](Example.jpg)
+![example.jpg](example.jpg)
