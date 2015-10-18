@@ -11,7 +11,7 @@ Install by Ruby gem [Taaze](https://rubygems.org/gems/taaze)
 
 ### Requirements
 - [Nokogiri](http://nokogiri.org) - for parsing html use
-- [Json](http://ruby-doc.org/stdlib-2.0.0/libdoc/json/rdoc/JSON.html) - parsing json data
+- [JSON](http://ruby-doc.org/stdlib-2.0.0/libdoc/json/rdoc/JSON.html) - parsing json data
 
 `$ bundle install`
 
@@ -45,3 +45,8 @@ or
 `taaze --comments 12522728 --output ./comments.yml`
 
 `taaze --collections 12522728 --output ./collections.yml`
+
+
+### Output Sample
+
+![Example.jpg](Example.jpg)
