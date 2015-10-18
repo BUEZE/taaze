@@ -5,8 +5,7 @@ Gem::Specification.new do |s|
   s.name        =  'taaze'
   s.version     =  Taaze::VERSION
   s.executables << 'taaze'
-  s.add_development_dependency 'minitest'
-  s.add_development_dependency 'minitest-rg'
+  s.add_runtime_dependency 'nokogiri'
   s.date        =  Taaze::DATE
   s.summary     =  'Data extractor of Taaze'
   s.description =  'Get the book comments or collections of specific user.'
