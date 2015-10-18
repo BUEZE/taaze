@@ -4,8 +4,8 @@
 
 Usage 
 
-`taaze comments [user_id]`
+`taaze --comments [user_id] --output [file_path]`
 
 or 
 
-`taaze collections [user_id]`
+`taaze --collections [user_id] --output [file_path]`
