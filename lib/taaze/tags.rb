@@ -1,5 +1,5 @@
 require 'open-uri'
-require 'oga'
+require 'nokogiri'
 
 module Taaze
   # This class get the product id as an input
@@ -24,7 +24,7 @@ module Taaze
     # parse the html
     def parse_html(book_id)
       url = BOOKS_URL + book_id
-      @document = Oga.parse_html(open(url))
+      @document = Nokogiri::HTML(open(url))
     end
 
     def extract_tags
