@@ -23,12 +23,16 @@ module Taaze
 
     #parse the html
     def parse_html(book_id)
-      
+      url = BOOKS_URL + book_id
+      @document = Oga.parse_html(open(url))
     end
 
     def extract_tags
-
+      tags = []
+      @document.xpath('//a[@class="tag"]').each do |t|
+        tags << t
+      end
+      tags
     end 
-    
 
   end
