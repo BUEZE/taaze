@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require_relative '../lib/taaze.rb'
+
+  user_id = ARGV[0]
+  collections_found = Taaze::TaazeBooktags.new(user_id)
+  puts "User #{user_id} has collected #{collections_found.tags.size} collections"
+  puts collections_found.tags

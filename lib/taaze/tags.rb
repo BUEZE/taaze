@@ -3,10 +3,10 @@ require 'oga'
 
 module Taaze
   # This class get the product id as an input
-  # return a list of tags 
+  # return a list of tags
   # Sample input with  product id : 11100763252
   # Sample output ['轉型正義', '白色恐怖', '社會科學', '臺灣民主運動']
-  
+
   class TaazeBooktags
     BOOKS_URL = 'http://www.taaze.tw/sing.html?pid='
 
@@ -21,7 +21,7 @@ module Taaze
 
     private
 
-    #parse the html
+    # parse the html
     def parse_html(book_id)
       url = BOOKS_URL + book_id
       @document = Oga.parse_html(open(url))
@@ -33,6 +33,6 @@ module Taaze
         tags << t.text
       end
       tags
-    end 
+    end
   end
 end
