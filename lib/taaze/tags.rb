@@ -30,9 +30,9 @@ module Taaze
     def extract_tags
       tags = []
       @document.xpath('//a[@class="tag"]').each do |t|
-        tags << t
+        tags << t.text
       end
       tags
     end 
-
   end
+end
