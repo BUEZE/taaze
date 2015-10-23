@@ -4,7 +4,11 @@ require 'yaml'
 require_relative '../lib/taaze.rb'
 
 if ARGV.count != 4 || (ARGV[0] != '--comments' && ARGV[0] != '--collections' && ARGV[0] != '--tags')
-  fail ArgumentError, "Usage: --comments [user_id] --output path OR --collections [user_id] --output path\n"
+  puts 'Usage:'
+  puts '--comments [user_id] --output [path]'
+  puts '--collections [user_id] --output [path]'
+  puts '--tags [book_id] --output [path]\n'
+  fail ArgumentError, "\n"
 else
   user_id = ARGV[1]
   path = ARGV[3]
