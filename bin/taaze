@@ -3,8 +3,12 @@
 require 'yaml'
 require_relative '../lib/taaze.rb'
 
-if ARGV.count != 4 || (ARGV[0] != '--comments' && ARGV[0] != '--collections')
-  fail ArgumentError, "Usage: --comments [user_id] --output path OR --collections [user_id] --output path\n"
+if ARGV.count != 4 || (ARGV[0] != '--comments' && ARGV[0] != '--collections' && ARGV[0] != '--tags')
+  puts 'Usage:'
+  puts '--comments [user_id] --output [path]'
+  puts '--collections [user_id] --output [path]'
+  puts '--tags [book_id] --output [path]\n'
+  fail ArgumentError, "\n"
 else
   user_id = ARGV[1]
   path = ARGV[3]
@@ -12,10 +16,14 @@ else
     comments_found = Taaze::TaazeComments.new(user_id)
     puts "User #{user_id} has collected #{comments_found.comments.size} comments"
     File.write(path, comments_found.comments.to_yaml, mode: 'w')
-  else
+  elsif ARGV[0] == '--collections'
     collections_found = Taaze::TaazeCollections.new(user_id)
     puts "User #{user_id} has collected #{collections_found.collections.size} collections"
     File.write(path, collections_found.comments.to_yaml, mode: 'w')
+  else
+    tags_found = Taaze::TaazeBooktags.new(user_id)
+    puts "Book #{user_id} has collected #{tags_found.tags.size} tags"
+    File.write(path, tags_found.tags.to_yaml, mode: 'w')
   end
   puts 'File saved to ' + path
 end
