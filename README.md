@@ -25,26 +25,30 @@ This gem may be used as a command line utility or called from code
 	 - For Example :
       - http://www.taaze.tw/container_zekeaclt_view.html?ci=13313301
       - 'ci=' is User ID
-- And there are 2 argument for use
-	- --comments ： get all comments for the user
-	- --collections ： get all book collection for the user
+- Like the user id, you can also get any books' ID from the URL
+- And there are 3 argument for use
+	- --comments : get all comments for the user
+	- --collections : get all book collection for the user
+	- --tags : get all tags of the book
 - And add yaml path where you want to store
 	- --output [file_path]
 - Finally the Taaze will return yaml format file 
 
 ### CLI
 
-`taaze --comments [user_id] --output [file_path]`
+`taaze --comments [user_id] --output [file_path]` OR
 
-or 
+`taaze --collections [user_id] --output [file_path]` OR
 
-`taaze --collections [user_id] --output [file_path]`
+`taaze --tags [book_id] --output [file_path]`
 
 ### For Example
       
 `taaze --comments 12522728 --output ./comments.yml`
 
 `taaze --collections 12522728 --output ./collections.yml`
+
+`taaze --tags 11100763435 --output ./tags.yml`
 
 
 ### Output Sample
