@@ -47,6 +47,7 @@ module Taaze
           book = {}
           book['title'] = book_data['titleMain']
           book['book_url'] = BOOK_URL + book_data['prodId']
+          book['crt_time'] = book_data['crtTime'].split(' ')[0]
           booklist << book
         end
       end
