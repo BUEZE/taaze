@@ -109,6 +109,7 @@ module Taaze
           data_hash_sub['book_url'] = BOOK_URL + cmtItem['orgProdId']
           url = MAIN_URL + 'co=' + cmtItem['pkNo'] + '&ci=' + user_id + '&cp=3'
           data_hash_sub['comment_url'] = url
+          data_hash_sub['crt_time'] = cmtItem['crt_time']
           data_arr.push(data_hash_sub)
         end
       else
